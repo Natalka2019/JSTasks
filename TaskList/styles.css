@@ -1,7 +1,7 @@
 :root {
   --white-color: #FFF;
   --blue-color: rgb(37, 23, 156);
-  --oceanblue-color: #28ceda;
+  --oceanblue-color: #68e0e9;
   --red-color: #c0250a;
 }
 
@@ -14,7 +14,7 @@ body {
 }
 
 .main {
-  padding: 30px;
+  padding: 50px 30px ;
   background-color: var(--blue-color);
   height: 100vh;
   display: flex;
@@ -34,7 +34,12 @@ body {
 }
 
 .input:focus {
-  outline: 3px solid var(--oceanblue-color);
+  outline: 2px solid var(--oceanblue-color);
+}
+
+::placeholder {
+  color: var(--oceanblue-color);
+  letter-spacing: .1rem;
 }
 
 .buttonsContainer {
@@ -66,6 +71,14 @@ body {
   border-color: var(--oceanblue-color);
   background-color: var(--blue-color);
   color: var(--oceanblue-color);
+  opacity: 1;
+  transition: opacity 0.3s linear;
+}
+
+.removeButton:disabled {  
+  opacity: 0;
+  cursor: auto;
+  transition: opacity 0.3s linear;
 }
 
 .taskList {

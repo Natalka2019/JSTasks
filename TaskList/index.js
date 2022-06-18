@@ -10,6 +10,11 @@ const emptyList = document.querySelector('.emptyList');
 addButton.addEventListener("click", addTaskToList);
 removeButton.addEventListener("click", removeTaskFromList);
 taskInput.addEventListener("focus", removeError);
+taskInput.addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    addTaskToList();
+  }
+});
 
 const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
@@ -28,7 +33,7 @@ function createNewTask (taskTitle) {
   let task = document.createElement('li');
   task.className = "task";
   task.innerText = taskTitle;
-  taskList.prepend(task);
+  taskList.append(task);
 
 };
 
@@ -38,7 +43,7 @@ function addTaskToList () {
 
   if (tasks.length >= LIMIT) {
     
-    alert('You exceeded limit!');
+    alert("You've exceeded limit!");
     
   } else if (!newTask) {
 
@@ -48,7 +53,7 @@ function addTaskToList () {
     
     createNewTask (newTask)
 
-    tasks.unshift(newTask);
+    tasks.push(newTask);
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
 
@@ -62,8 +67,8 @@ function addTaskToList () {
 
 function removeTaskFromList () {
 
-  taskList.removeChild(taskList.lastChild);
-  tasks.pop();
+  taskList.removeChild(taskList.firstChild);
+  tasks.shift();
 
   localStorage.setItem('tasks', JSON.stringify(tasks));
 
@@ -82,10 +87,12 @@ function showHideEmptyList (tasks) {
   if (tasks.length > 0) {
 
     emptyList.style.display = "none";
+    removeButton.disabled = false;
 
   } else {
 
     emptyList.style.display = "block";
+    removeButton.disabled = true;
 
   }
 
