@@ -1,0 +1,96 @@
+:root {
+  --white-color: #FFF;
+  --blue-color: rgb(37, 23, 156);
+  --oceanblue-color: #28ceda;
+  --red-color: #c0250a;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  color: var(--oceanblue-color);
+  letter-spacing: .1rem;
+  font-family: arial, sans-serif
+}
+
+.main {
+  padding: 30px;
+  background-color: var(--blue-color);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input {
+  width: 250px;
+  margin-top: 5px;
+  border: 1px solid;
+  border-color: var(--oceanblue-color);
+  background-color: var(--blue-color);
+  border-radius: 5px;
+  padding: 10px;
+  color: var(--white-color);
+}
+
+.input:focus {
+  outline: 3px solid var(--oceanblue-color);
+}
+
+.buttonsContainer {
+  width: 250px;
+  padding: 10px 10px 0 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  border: none;
+  width: 100px;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  letter-spacing: .1rem;
+}
+.button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.addButton {
+  color: var(--blue-color);
+  background-color: var(--oceanblue-color);
+}
+
+.removeButton {
+  border: 1px dotted;
+  border-color: var(--oceanblue-color);
+  background-color: var(--blue-color);
+  color: var(--oceanblue-color);
+}
+
+.taskList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.task {
+  width: 250px;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: var(--oceanblue-color);
+  color: var(--blue-color);
+}
+
+.error {
+  padding-top: 5px;
+  visibility: hidden;
+  color: var(--red-color);
+}
+
+.emptyList {
+  width: 250px;
+  text-align: center;
+  padding-top: 40px;
+  color: var(--oceanblue-color);
+}
