@@ -10,6 +10,7 @@ const emptyList = document.querySelector('.emptyList');
 addButton.addEventListener("click", addTaskToList);
 removeButton.addEventListener("click", removeTaskFromList);
 taskInput.addEventListener("focus", removeError);
+
 taskInput.addEventListener("keypress", function (e) {
   if (e.key === "Enter") {
     addTaskToList();
@@ -31,8 +32,10 @@ if (tasks.length > 0) {
 function createNewTask (taskTitle) {
 
   let task = document.createElement('li');
+
   task.className = "task";
   task.innerText = taskTitle;
+  
   taskList.append(task);
 
 };
